@@ -17,18 +17,22 @@ public class Tarif {
     private double sds;
     private double ons;
     private double hds;
+    private int berat ;
 
     public Tarif() {
     }
 
-    public Tarif(String kotaTujuan, double reguler, double kilat, double sds, double ons, double hds) {
+    public Tarif(String kotaTujuan, double reguler, double kilat, double sds, double ons, double hds, int berat) {
         this.kotaTujuan = kotaTujuan;
         this.reguler = reguler;
         this.kilat = kilat;
         this.sds = sds;
         this.ons = ons;
         this.hds = hds;
+        this.berat = berat;
     }
+
+    
 
     
     /**
@@ -60,6 +64,20 @@ public class Tarif {
      */
     public String getKotaTujuan() {
         return kotaTujuan;
+    }
+
+    /**
+     * @return the berat
+     */
+    public int getBerat() {
+        return berat;
+    }
+
+    /**
+     * @param berat the berat to set
+     */
+    public void setBerat(int berat) {
+        this.berat = berat;
     }
 
     /**
@@ -129,6 +147,24 @@ public class Tarif {
     public String toString() {
         return this.kotaTujuan;
     }
+    Paket p = new Paket();
+    public double hitungBiayaReguler() {
+        return this.reguler = this.berat * this.reguler;
+    }
+    public double hitungBiayaKilat () {
+        return this.kilat = this.berat *this.kilat;
+    }
+    public double hitungBiayaSDS () {
+        return this.sds = this.berat * this.sds;
+    }
+    public double hitungBiayaONS () {
+        return this.ons = this.berat*this.ons;
+                 
+    }
+    public double hitungBiayaHDS () {
+        return this.hds = this.berat * this.hds;
+    }
+    
     
     
     
