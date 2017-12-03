@@ -18,11 +18,12 @@ public class Tarif {
     private double ons;
     private double hds;
     private int berat ;
+    private double hargaBarang;
 
     public Tarif() {
     }
 
-    public Tarif(String kotaTujuan, double reguler, double kilat, double sds, double ons, double hds, int berat) {
+    public Tarif(String kotaTujuan, double reguler, double kilat, double sds, double ons, double hds, int berat, double hargaBarang) {
         this.kotaTujuan = kotaTujuan;
         this.reguler = reguler;
         this.kilat = kilat;
@@ -30,9 +31,10 @@ public class Tarif {
         this.ons = ons;
         this.hds = hds;
         this.berat = berat;
+        this.hargaBarang = hargaBarang;
     }
 
-    
+     
 
     
     /**
@@ -64,6 +66,20 @@ public class Tarif {
      */
     public String getKotaTujuan() {
         return kotaTujuan;
+    }
+
+    /**
+     * @return the hargaBarang
+     */
+    public double getHargaBarang() {
+        return hargaBarang;
+    }
+
+    /**
+     * @param hargaBarang the hargaBarang to set
+     */
+    public void setHargaBarang(double hargaBarang) {
+        this.hargaBarang = hargaBarang;
     }
 
     /**
@@ -164,8 +180,22 @@ public class Tarif {
     public double hitungBiayaHDS () {
         return this.hds = this.berat * this.hds;
     }
-    
-    
+    public double hitungBiayaRegulerWintAsuransi () {
+        return this.reguler = (this.berat * this.reguler) + (this.hargaBarang * 0.03); 
+    }
+    public double hitungBiayaKilatWithAsuransi () {
+        return this.kilat = (this.berat *this.kilat) + (this.hargaBarang * 0.03);
+    }
+    public double hitungBiayaSDSWithAsuransi () {
+        return this.sds = (this.berat * this.sds) + (this.hargaBarang * 0.03);
+    }
+    public double hitungBiayaONSWithAsuransi () {
+        return this.ons = (this.berat*this.ons) + (this.hargaBarang * 0.03);
+                 
+    }
+    public double hitungBiayaHDSWithAsuransi () {
+        return this.hds = (this.berat * this.hds) + (this.hargaBarang * 0.03);
+    }
     
     
 }
