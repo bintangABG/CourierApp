@@ -11,6 +11,8 @@ import com.dao.jod.TarifFileDao;
 import com.model.jod.Paket;
 import com.model.jod.Tarif;
 import java.io.FileNotFoundException;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +28,7 @@ public class CourierApp extends javax.swing.JFrame {
     List<Tarif> kotaTujuan;
     Tarif [] kota; 
     Tarif tarif = new Tarif();
+    DecimalFormat df = new DecimalFormat("###,###.##");
     /**
      * Creates new form CourierApp
      */
@@ -103,7 +106,7 @@ public class CourierApp extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        namaDataPenerima = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
@@ -165,6 +168,10 @@ public class CourierApp extends javax.swing.JFrame {
         labelHargaTransaksi = new javax.swing.JLabel();
         labelAsuransi = new javax.swing.JLabel();
         labelHargaTotal = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        labelNamaPengirim = new javax.swing.JLabel();
+        labelNamaPengirim1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -228,11 +235,11 @@ public class CourierApp extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(kotaDataPengirimTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(teleponDataPEngirimTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(178, 178, 178))
+                .addGap(188, 188, 188))
         );
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
@@ -258,12 +265,12 @@ public class CourierApp extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9))
-                .addGap(45, 45, 45)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(namaDataPenerima, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
                     .addComponent(teleponPenerimaTextField))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,7 +278,7 @@ public class CourierApp extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(namaDataPenerima, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
@@ -476,6 +483,8 @@ public class CourierApp extends javax.swing.JFrame {
 
         jLabel23.setText("Harga Barang");
 
+        hargaBarangTextField.setEnabled(false);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -504,11 +513,10 @@ public class CourierApp extends javax.swing.JFrame {
                                     .addComponent(kotaTujuanComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jLabel11)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
                         .addComponent(jLabel13)
                         .addGap(18, 18, 18)
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -744,6 +752,10 @@ public class CourierApp extends javax.swing.JFrame {
 
         jLabel31.setText("Harga Total");
 
+        jLabel32.setText("Nama Pengirim");
+
+        jLabel33.setText("Nama Penerima");
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -753,33 +765,47 @@ public class CourierApp extends javax.swing.JFrame {
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel29)
                     .addComponent(jLabel30)
-                    .addComponent(jLabel31))
-                .addGap(56, 56, 56)
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel32)
+                    .addComponent(jLabel33))
+                .addGap(38, 38, 38)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelHargaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelAsuransi, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelHargaTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(labelNamaPengirim1, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(labelHargaTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                        .addComponent(labelAsuransi, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                        .addComponent(labelHargaTransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelNamaPengirim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelNamaPengirim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel29)
-                    .addComponent(labelHargaTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel33)
+                    .addComponent(labelNamaPengirim1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel30)
-                    .addComponent(labelAsuransi, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelHargaTransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelAsuransi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(13, 13, 13)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel31))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(labelHargaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(labelHargaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -791,23 +817,24 @@ public class CourierApp extends javax.swing.JFrame {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(421, 421, 421))
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
-                            .addContainerGap()
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, Short.MAX_VALUE))))
                 .addContainerGap(167, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -825,10 +852,13 @@ public class CourierApp extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
 
@@ -895,8 +925,10 @@ public class CourierApp extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
+        
         if (radioAsuransiYA.isSelected()) {
             
+           
 //         Tarif tarif = new Tarif();
         PengirimanDaoWithAsuransi pa = new PengirimanDaoWithAsuransi();
         String namaKota = String.valueOf(kotaTujuanComboBox.getSelectedItem());
@@ -906,11 +938,11 @@ public class CourierApp extends javax.swing.JFrame {
         double hargaBarang = Double.parseDouble(harga);
         tarif = pa.hitungHarga(namaKota, berat, hargaBarang);
         
-        buttonReguler.setText("Rp. "+tarif.getReguler());
-        buttonKilat.setText("Rp. "+tarif.getKilat());
-        buttonSDS.setText("Rp. "+tarif.getSds());
-        buttonONS.setText("RP. "+tarif.getOns());
-        buttonHDS.setText("RP. "+tarif.getHds());
+        buttonReguler.setText("Rp. "+df.format(tarif.getReguler()));
+        buttonKilat.setText("Rp. "+df.format(tarif.getKilat()));
+        buttonSDS.setText("Rp. "+df.format(tarif.getSds()));
+        buttonONS.setText("RP. "+df.format(tarif.getOns()));
+        buttonHDS.setText("RP. "+df.format(tarif.getHds()));
         
         keteranganAsuransiLabel.setText("*Asuransi Dikenakan Biaya 0.03 % dari Harga Barang");
         } else {    
@@ -923,11 +955,11 @@ public class CourierApp extends javax.swing.JFrame {
         
         tarif = p.hitungHarga(namaKota, berat);
         
-        buttonReguler.setText("Rp. "+tarif.getReguler());
-        buttonKilat.setText("Rp. "+tarif.getKilat());
-        buttonSDS.setText("Rp. "+tarif.getSds());
-        buttonONS.setText("RP. "+tarif.getOns());
-        buttonHDS.setText("RP. "+tarif.getHds());
+        buttonReguler.setText("Rp. "+df.format(tarif.getReguler()));
+        buttonKilat.setText("Rp. "+df.format(tarif.getKilat()));
+        buttonSDS.setText("Rp. "+df.format(tarif.getSds()));
+        buttonONS.setText("RP. "+df.format(tarif.getOns()));
+        buttonHDS.setText("RP. "+df.format(tarif.getHds()));
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -946,10 +978,13 @@ public class CourierApp extends javax.swing.JFrame {
         double reguler = tarif.getReguler() - asuransi;
         double total = tarif.getReguler();
         
-        labelHargaTotal.setText(total+" Ribu");
-        labelAsuransi.setText(asuransi+" Ribu");
+        labelHargaTotal.setText(df.format(total));
+        labelAsuransi.setText(df.format(asuransi));
         
-        labelHargaTransaksi.setText(reguler+" Ribu");
+        labelHargaTransaksi.setText(df.format(reguler));
+        labelNamaPengirim.setText(namaDataPengirimTextField.getText());
+        labelNamaPengirim1.setText(namaDataPenerima.getText());
+        
     }//GEN-LAST:event_buttonRegulerActionPerformed
 
     private void radioAsuransiTidakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioAsuransiTidakActionPerformed
@@ -967,10 +1002,12 @@ public class CourierApp extends javax.swing.JFrame {
         double kilat = tarif.getKilat()- asuransi;
         double total = tarif.getKilat();
         
-        labelHargaTotal.setText(total+" Ribu");
-        labelAsuransi.setText(asuransi+" Ribu");
+        labelHargaTotal.setText(df.format(total));
+        labelAsuransi.setText(df.format(asuransi));
         
-        labelHargaTransaksi.setText(kilat+" Ribu");
+        labelHargaTransaksi.setText(df.format(kilat));
+        labelNamaPengirim.setText(namaDataPengirimTextField.getText());
+        labelNamaPengirim1.setText(namaDataPenerima.getText());
     }//GEN-LAST:event_buttonKilatActionPerformed
 
     private void buttonONSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonONSActionPerformed
@@ -979,9 +1016,11 @@ public class CourierApp extends javax.swing.JFrame {
         double ons = tarif.getOns()- asuransi;
         double total = tarif.getOns();
         
-        labelHargaTotal.setText(total+" Ribu");
-        labelAsuransi.setText(asuransi+" Ribu");
-        labelHargaTransaksi.setText(ons+" Ribu");
+        labelHargaTotal.setText(df.format(total));
+        labelAsuransi.setText(df.format(asuransi));
+        labelHargaTransaksi.setText(df.format(ons));
+        labelNamaPengirim.setText(namaDataPengirimTextField.getText());
+        labelNamaPengirim1.setText(namaDataPenerima.getText());
     }//GEN-LAST:event_buttonONSActionPerformed
 
     private void buttonSDSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSDSActionPerformed
@@ -990,9 +1029,11 @@ public class CourierApp extends javax.swing.JFrame {
         double sds = tarif.getSds()- asuransi;
         double total = tarif.getSds();
         
-        labelHargaTotal.setText(total+" Ribu");
-        labelAsuransi.setText(asuransi+" Ribu");
-        labelHargaTransaksi.setText(sds+" Ribu");
+        labelHargaTotal.setText(df.format(total));
+        labelAsuransi.setText(df.format(asuransi));
+        labelHargaTransaksi.setText(df.format(sds));
+        labelNamaPengirim.setText(namaDataPengirimTextField.getText());
+        labelNamaPengirim1.setText(namaDataPenerima.getText());
     }//GEN-LAST:event_buttonSDSActionPerformed
 
     private void buttonHDSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHDSActionPerformed
@@ -1001,9 +1042,11 @@ public class CourierApp extends javax.swing.JFrame {
         double hds = tarif.getOns()- asuransi;
         double total = tarif.getHds();
         
-        labelHargaTotal.setText(total+" Ribu");
-        labelAsuransi.setText(asuransi+" Ribu");
-        labelHargaTransaksi.setText(hds+" Ribu");
+        labelHargaTotal.setText(df.format(total));
+        labelAsuransi.setText(df.format(asuransi));
+        labelHargaTransaksi.setText(df.format(hds));
+        labelNamaPengirim.setText(namaDataPengirimTextField.getText());
+        labelNamaPengirim1.setText(namaDataPenerima.getText());
     }//GEN-LAST:event_buttonHDSActionPerformed
 
     /**
@@ -1078,6 +1121,8 @@ public class CourierApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1107,7 +1152,6 @@ public class CourierApp extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JComboBox<String> jenisBarangComboBox;
     private javax.swing.JLabel keteranganAsuransiLabel;
     private javax.swing.JTextField kotaDataPengirimTextField;
@@ -1115,8 +1159,11 @@ public class CourierApp extends javax.swing.JFrame {
     private javax.swing.JLabel labelAsuransi;
     private javax.swing.JLabel labelHargaTotal;
     private javax.swing.JLabel labelHargaTransaksi;
+    private javax.swing.JLabel labelNamaPengirim;
+    private javax.swing.JLabel labelNamaPengirim1;
     private javax.swing.JTextField lebarTextField;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JTextField namaDataPenerima;
     private javax.swing.JTextField namaDataPengirimTextField;
     private javax.swing.JTextField noPaketTextField;
     private javax.swing.JTextField panjangTextField;
