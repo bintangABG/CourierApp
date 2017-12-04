@@ -19,7 +19,7 @@ public class TarifFileDao {
         List <Tarif> kotatujuan = new ArrayList<>();
         
         try {
-            Scanner scan = new Scanner(new File("d:/File/kota.txt"));
+            Scanner scan = new Scanner(new File("e:/Java/kota.txt"));
             
             while (scan.hasNextLine()) {
             
